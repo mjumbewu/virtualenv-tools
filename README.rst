@@ -35,10 +35,9 @@ Installation
 ------------
 
 Place ``activate-env`` and ``relocate-env`` in a directory on your $PATH (I put 
-mine in $HOME/.bin).  If you don't want to put that pesky ``. `` before each
+mine in $HOME/.bin).  If you don't want to put that pesky ``.`` before each
 call to ``activate-env``, you'll need to add an alias to your *.bashrc* file.
 For example::
 
     export PATH=$PATH:~/.bin
     alias activate-env=". activate-env"
-
