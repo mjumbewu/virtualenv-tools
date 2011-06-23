@@ -18,7 +18,7 @@ For example, whenever I start a new project, I run::
     virtualenv .env --no-site-packages
     . activate-env .env
 
-If I rename my project, ir usually looks something like this::
+If I rename my project, it usually looks something like this::
 
     cd ..
     mv oldproject newproject
