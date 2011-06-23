@@ -9,9 +9,12 @@ To activate a virtual environment::
 
     . activate-env path/to/env/
 
-If you have moved an environment, to update it:
+If you have moved an environment, to update it::
 
     relocate-env newpath/to/env/
+
+Example
+~~~~~~~
 
 For example, whenever I start a new project, I run::
 
