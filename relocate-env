@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Relocate a virtual environment directory.
+
+WD=`pwd`
+
+# The new virtual env is the full path name of the virtal environment directory
+# specified in the arguments.
+cd "$1"
+NEW_VIRTUAL_ENV=`pwd`
+
+# The old virtual env comes from the bin/activate script.
+source bin/activate
+
+# Store everything of type file that is in the virtual environment path
+FILES=(`find . -name "*" -type f`)
+NUM_FILES=${#FILES[@]}
+COUNTER=0
+
+function echo_status() {
+    PERCENT_COMPLETE=`expr $COUNTER \* 100 / $NUM_FILES`
+    echo -ne "\rUpdated $COUNTER of $NUM_FILES files (${PERCENT_COMPLETE}%)     "
+}
+
+echo_status
+# Update all the files in the environment directory
+for FILE in ${FILES[@]}
+do
+  if [ -f $FILE ]
+  then
+    sed --in-place "s:$VIRTUAL_ENV:$NEW_VIRTUAL_ENV:g" "$FILE"
+    COUNTER=`expr $COUNTER + 1`
+    echo_status
+  fi
+done
+
+echo "Done!"
+

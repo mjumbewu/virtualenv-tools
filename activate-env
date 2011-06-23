@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# NOTE: This script should be run with the dot (.) notation in order for the 
+#       commands to take effect in the current bash instance.  For example:
+#
+#           user@computer: . activate localenv
+#
+
+WD=`pwd`
+
+cd "$1"
+source bin/activate
+cd "$WD"
+
