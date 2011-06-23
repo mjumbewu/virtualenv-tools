@@ -11,6 +11,7 @@ NEW_VIRTUAL_ENV=`pwd`
 
 # The old virtual env comes from the bin/activate script.
 source bin/activate
+$OLD_VIRTUAL_ENV=$VIRTUAL_ENV
 
 # Store everything of type file that is in the virtual environment path
 FILES=(`find . -name "*" -type f`)
@@ -28,7 +29,7 @@ for FILE in ${FILES[@]}
 do
   if [ -f $FILE ]
   then
-    sed --in-place "s:$VIRTUAL_ENV:$NEW_VIRTUAL_ENV:g" "$FILE"
+    sed --in-place "s:$OLD_VIRTUAL_ENV:$NEW_VIRTUAL_ENV:g" "$FILE"
     COUNTER=`expr $COUNTER + 1`
     echo_status
   fi
