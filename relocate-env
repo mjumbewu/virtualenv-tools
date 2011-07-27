@@ -11,7 +11,7 @@ NEW_VIRTUAL_ENV=`pwd`
 
 # The old virtual env comes from the bin/activate script.
 source bin/activate
-$OLD_VIRTUAL_ENV=$VIRTUAL_ENV
+OLD_VIRTUAL_ENV=$VIRTUAL_ENV
 
 # Store everything of type file that is in the virtual environment path
 FILES=(`find . -name "*" -type f`)
@@ -23,7 +23,13 @@ function echo_status() {
     echo -ne "\rUpdated $COUNTER of $NUM_FILES files (${PERCENT_COMPLETE}%)     "
 }
 
+function echo_overview() {
+    echo "Moving environment path from '$OLD_VIRTUAL_ENV' to '$NEW_VIRTUAL_ENV'"
+}
+
+echo_overview
 echo_status
+
 # Update all the files in the environment directory
 for FILE in ${FILES[@]}
 do
