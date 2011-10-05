@@ -5,6 +5,10 @@
 #
 #           user@computer: . activate localenv
 #
+#       Alternatively, create an alias in your .bashrc:
+#
+#           alias activate='. activate'
+#
 
 WD=`pwd`
 
